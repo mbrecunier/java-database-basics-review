@@ -50,4 +50,11 @@ public class ClientTest {
     assertTrue(Client.all().contains(newClient));
   }
 
+  @Test
+  public void find_returnsClientFromDatabase_true() {
+    Client newClient = new Client("Darlene", 1);
+    newClient.save();
+    assertEquals(newClient, Client.find(newClient.getId()));
+  }
+
 }
