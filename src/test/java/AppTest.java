@@ -45,6 +45,15 @@ public class AppTest extends FluentTest {
     String stylistPath = String.format("http://localhost:4567/stylist/%d", newStylist.getId());
     goTo(stylistPath);
     assertThat(pageSource()).contains("Mary");
+  }
 
+  @Test
+  public void stylistPageLeadsBackHome() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylist/%d", newStylist.getId());
+    goTo(stylistPath);
+    click("a", withText("Back to Main Page"));
+    assertThat(pageSource()).contains("All Stylists");
   }
 }

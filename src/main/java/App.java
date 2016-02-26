@@ -24,6 +24,7 @@ public class App {
       Stylist newStylist = new Stylist(name);
       newStylist.save();
 
+      model.put("stylists", Stylist.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
