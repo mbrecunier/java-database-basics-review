@@ -13,5 +13,11 @@ public class StylistTest {
     assertEquals(Stylist.all().size(), 0);
   }
 
+  @Test
+  public void getName_returnsName_string() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.getName();
+  }
+
 
 }
