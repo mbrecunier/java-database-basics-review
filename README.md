@@ -6,7 +6,7 @@
 
 ## Description
 
-Add stylists to your salon and add clients for each of the stylists.
+Add stylists to your salon and add clients for each of the stylists. Update client name or who their preferred stylist is. Delete a stylist and their clients from your database.
 
 ## Setup/Installation Requirements
 
