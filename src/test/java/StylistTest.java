@@ -47,5 +47,13 @@ public class StylistTest {
     assertTrue(newStylist.getId() == savedStylist.getId());
   }
 
+  @Test
+  public void update_changesStylistName() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    newStylist.update("Mary");
+    assertEquals(newStylist.getName(), "Mary");
+  }
+
 
 }
