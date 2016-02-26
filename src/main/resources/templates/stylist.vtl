@@ -11,7 +11,9 @@
       #end
     </ul>
   </div>
-
+</div>
+<hr>
+<div class="row">
   <div class="col-md-6">
     <h4>Add A New Client:</h4>
     <form action='/stylist/$stylist.getId()' method="post">
@@ -23,4 +25,10 @@
       <button class="btn" id="new-client" type="submit">Add Client</button>
     </form>
   </div>
+</div>
+<hr>
+<div class="row">
+  <form action="/remove/$stylist.getId()" method="post">
+    <button class="btn btn-danger">Remove Stylist and Clients</button>
+  </form>
 </div>

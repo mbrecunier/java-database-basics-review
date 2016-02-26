@@ -85,4 +85,13 @@ public class Stylist {
     }
   }
 
+  public void deleteClients() {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM clients WHERE stylistid = :id;";
+      con.createQuery(sql)
+        .addParameter("id", this.id)
+        .executeUpdate();
+    }
+  }
+
 }
