@@ -9,6 +9,12 @@ public class StylistTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
+  public void stylist_instantiatesCorrectly_true() {
+    Stylist newStylist = new Stylist("Barbara");
+    assertTrue(newStylist instanceof Stylist);
+  }
+
+  @Test
   public void all_emptyAtFirst() {
     assertEquals(Stylist.all().size(), 0);
   }
@@ -24,6 +30,21 @@ public class StylistTest {
     Stylist newStylist = new Stylist("Barbara");
     newStylist.save();
     assertTrue(Stylist.all().contains(newStylist));
+  }
+
+  @Test
+  public void find_returnsStylistFromDatabase() {
+    Stylist newStylist = new Stylist ("Barbara");
+    newStylist.save();
+    assertTrue(newStylist.equals(Stylist.find(newStylist.getId())));
+  }
+
+  @Test
+  public void getId_returnsId() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    Stylist savedStylist = Stylist.find(newStylist.getId());
+    assertTrue(newStylist.getId() == savedStylist.getId());
   }
 
 
