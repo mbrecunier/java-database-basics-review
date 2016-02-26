@@ -25,11 +25,11 @@ public class ClientTest {
     assertEquals(1, newClient.getStylistId());
   }
 
-  // @Test
-  // public void getId_returnsInt_true() {
-  //   Client newClient = new Client("Darlene", 1);
-  //   assertEquals(newClient.getId(), 1);
-  // }
+  @Test
+  public void getId_returnsInt_int() {
+    Client newClient = new Client("Darlene", 1);
+    assertEquals(newClient.getId(), 0);
+  }
 
   @Test
   public void all_emptyAtFirst() {
@@ -41,6 +41,13 @@ public class ClientTest {
     Client newClient = new Client("Darlene", 1);
     Client newClient2 = new Client("Darlene", 1);
     assertTrue(newClient.equals(newClient2));
+  }
+
+  @Test
+  public void save_savesClientToDatabase_true() {
+    Client newClient = new Client("Darlene", 1);
+    newClient.save();
+    assertTrue(Client.all().contains(newClient));
   }
 
 }
