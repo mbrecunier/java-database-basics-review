@@ -19,5 +19,12 @@ public class StylistTest {
     newStylist.getName();
   }
 
+  @Test
+  public void save_addsStylistToDatabase_true() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    assertTrue(Stylist.all().contains(newStylist));
+  }
+
 
 }
