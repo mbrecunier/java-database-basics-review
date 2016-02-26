@@ -7,7 +7,7 @@
     <h4>Clients:</h4>
     <ul>
       #foreach ($client in $stylist.getClients())
-        <li>$client.getName()</li>
+        <a href="/update/$client.getId()"><li>$client.getName()</li></a>
       #end
     </ul>
   </div>
