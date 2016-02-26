@@ -68,4 +68,16 @@ public class AppTest extends FluentTest {
     click("a", withText("Mary"));
     assertThat(pageSource()).contains("Update Information For Mary");
   }
+
+  @Test
+  public void updateButtonChangesClientInformation() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    Client newClient = new Client("Mary", newStylist.getId());
+    newClient.save();
+    newClient.update("Sally", newStylist.getId());
+    String stylistPath = String.format("http://localhost:4567/stylist/%d", newStylist.getId());
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Sally");
+  }
 }

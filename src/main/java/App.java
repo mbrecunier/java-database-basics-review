@@ -62,8 +62,27 @@ public class App {
       int clientId = Integer.parseInt(stringClientId);
       Client client = Client.find(clientId);
 
+      model.put("updateStatus", "");
       model.put("client", client);
       model.put("stylistClass", Stylist.class);
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/update.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("update/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+
+      int clientId = Integer.parseInt(request.params(":id"));
+      String clientName = request.queryParams("client-name");
+      int stylistId = Integer.parseInt(request.queryParams("stylistId"));
+      Client client = Client.find(clientId);
+      client.update(clientName, stylistId);
+
+      model.put("updateStatus", "Updated");
+      model.put("client", client);
+      model.put("stylistClass", Stylist.class);
+      model.put("stylists", Stylist.all());
       model.put("template", "templates/update.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
