@@ -64,5 +64,14 @@ public class StylistTest {
     assertFalse(Stylist.all().contains(newStylist));
   }
 
+  @Test
+  public void getClients_returnsClientList() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    Client newClient = new Client("Mary", newStylist.getId());
+    newClient.save();
+    assertTrue(newStylist.getClients().contains(newClient));
+  }
+
 
 }
