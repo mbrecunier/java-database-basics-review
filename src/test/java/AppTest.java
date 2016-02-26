@@ -35,4 +35,15 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Barbara");
   }
+
+  @Test
+  public void newClientDisplaysOnPage() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    Client newClient = new Client("Mary", newStylist.getId());
+    newClient.save();
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Mary");
+
+  }
 }
