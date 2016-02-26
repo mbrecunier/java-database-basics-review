@@ -27,4 +27,12 @@ public class AppTest extends FluentTest {
       goTo("http://localhost:4567/");
       assertThat(pageSource()).contains("Awesome Hair Salon");
   }
+
+  @Test
+  public void newStylistDisplaysOnPage() {
+    Stylist newStylist = new Stylist("Barbara");
+    newStylist.save();
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Barbara");
+  }
 }
