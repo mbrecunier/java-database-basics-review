@@ -26,12 +26,6 @@ public class ClientTest {
   }
 
   @Test
-  public void getId_returnsInt_int() {
-    Client newClient = new Client("Darlene", 1);
-    assertEquals(newClient.getId(), 0);
-  }
-
-  @Test
   public void all_emptyAtFirst() {
     assertEquals(Client.all().size(), 0);
   }
@@ -48,6 +42,14 @@ public class ClientTest {
     Client newClient = new Client("Darlene", 1);
     newClient.save();
     assertTrue(Client.all().contains(newClient));
+  }
+
+  @Test
+  public void getId_returnsId() {
+    Client newClient = new Client("Darlene", 1);
+    newClient.save();
+    Client savedClient = Client.find(newClient.getId());
+    assertTrue(newClient.getId() == savedClient.getId());
   }
 
   @Test
