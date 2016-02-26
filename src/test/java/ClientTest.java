@@ -57,4 +57,13 @@ public class ClientTest {
     assertEquals(newClient, Client.find(newClient.getId()));
   }
 
+  @Test
+  public void update_updatesClientProperties() {
+    Client newClient = new Client("Darlene", 1);
+    newClient.save();
+    newClient.update("Darcy", 2);
+    assertEquals("Darcy", newClient.getName());
+    assertEquals(2, newClient.getStylistId());
+  }
+
 }
