@@ -14,6 +14,24 @@ public class ClientTest {
   }
 
   @Test
+  public void getName_returnsName_string() {
+    Client newClient = new Client("Darlene", 1);
+    assertEquals("Darlene", newClient.getName());
+  }
+
+  @Test
+  public void getStylistId_returnsStylistId_int() {
+    Client newClient = new Client("Darlene", 1);
+    assertEquals(1, newClient.getStylistId());
+  }
+
+  // @Test
+  // public void getId_returnsInt_true() {
+  //   Client newClient = new Client("Darlene", 1);
+  //   assertEquals(newClient.getId(), 1);
+  // }
+
+  @Test
   public void all_emptyAtFirst() {
     assertEquals(Client.all().size(), 0);
   }

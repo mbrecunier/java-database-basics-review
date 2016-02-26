@@ -17,19 +17,19 @@ public class Client {
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }
-  // 
-  // public String getName() {
-  //   return name;
-  // }
-  //
+
+  public String getName() {
+    return name;
+  }
+
   // public int getId() {
   //   return id;
   // }
-  //
-  // public int getStylistId() {
-  //   return stylistId;
-  // }
-  //
+
+  public int getStylistId() {
+    return stylistId;
+  }
+
   // @Override
   // public boolean equals(Object otherClient){
   //   if (!(otherClient instanceof Client)) {
