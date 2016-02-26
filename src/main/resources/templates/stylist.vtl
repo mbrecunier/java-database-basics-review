@@ -2,19 +2,16 @@
 
 <div class="row">
   <div class="col-md-6">
-    #if ($stylist.getClients().size() == 0)
-    <p>This stylist currently has no clients :(</p>
-    #else
+    <h4>Clients:</h4>
     <ul>
       #foreach ($client in $stylist.getClients())
-      <li>$client.getName()</li>
+        <li>$client.getName()</li>
       #end
     </ul>
-    #end
   </div>
 
   <div class="col-md-6">
-    <h4>Add A New Client</h4>
+    <h4>Add A New Client:</h4>
     <form action='/stylist/$stylist.getId()' method="post">
       <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
       <div class="form-group">

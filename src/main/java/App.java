@@ -30,8 +30,10 @@ public class App {
 
     get("/stylist/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+
       String id = request.params(":id");
       Stylist stylist = Stylist.find(Integer.parseInt(id));
+
       model.put("stylist", stylist);
       model.put("template", "templates/stylist.vtl");
       return new ModelAndView(model, layout);
@@ -39,10 +41,14 @@ public class App {
 
     post("/stylist/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      String stylistId = request.queryParams("stylistId");
+
+      String stringStylistId = request.queryParams("stylistId");
+      int stylistId = Integer.parseInt(stringStylistId);
       String name = request.queryParams("client-name");
-      Client newClient = new Client(name, Integer.parseInt(stylistId));
-      Stylist stylist = Stylist.find(Integer.parseInt(stylistId));
+      Client newClient = new Client(name, stylistId);
+      newClient.save();
+      Stylist stylist = Stylist.find(stylistId);
+
       model.put("stylist", stylist);
       model.put("template", "templates/stylist.vtl");
       return new ModelAndView(model, layout);
