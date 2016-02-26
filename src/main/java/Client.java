@@ -22,24 +22,23 @@ public class Client {
     return name;
   }
 
-  // public int getId() {
-  //   return id;
-  // }
+  public int getId() {
+    return id;
+  }
 
   public int getStylistId() {
     return stylistId;
   }
 
-  // @Override
-  // public boolean equals(Object otherClient){
-  //   if (!(otherClient instanceof Client)) {
-  //     return false;
-  //   } else {
-  //     Client newClient = (Client) otherClient;
-  //     return this.getName().equals(newClient.getName()) &&
-  //       this.getId() == newClient.getId();
-  //   }
-  // }
+  @Override
+  public boolean equals(Object otherClient){
+    if (!(otherClient instanceof Client)) {
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return this.getName().equals(newClient.getName()) && this.getStylistId() == newClient.getStylistId() && this.getId() == newClient.getId();
+    }
+  }
 
 
 }
