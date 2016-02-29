@@ -26,10 +26,7 @@ Add stylists to your salon and add clients for each of the stylists. Update clie
 * Open a new terminal window to start Postgres server:
     * $ postgres
 * Open a new terminal window to build the database:
-    * $ psql
-    * $ CREATE DATABASE hair_salon;
-    * $ CREATE TABLE stylists(id serial PRIMARY KEY, name varchar);
-    * $ CREATE TABLE clients(id serial PRIMARY KEY, name varchar, stylistid int);
+    * $ psql hair_salon < hair_salon.sql;
 * In the top level of the cloned directory, run the following command in a new terminal:
     * $ gradle run
 * Open your web browser of choice to localhost:4567
